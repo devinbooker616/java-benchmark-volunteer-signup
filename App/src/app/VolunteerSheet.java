@@ -7,25 +7,14 @@ public class VolunteerSheet implements Serializable {
     String lastName;
     String phone;
     String email;
-    String worship;
-    String welcome;
-    String production;
-    String communityGroups;
-    String childrenMinistry;
-    String studentMinistry;
+    String team;
 
-    public VolunteerSheet(String firstName, String lastName, String phone, String email, String worship, String welcome,
-            String production, String communityGroups, String childrenMinistry, String studentMinistry) {
+    public VolunteerSheet(String firstName, String lastName, String phone, String email, String team) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phone = phone;
+        his.phone = phone;
         this.email = email;
-        this.worship = worship;
-        this.welcome = welcome;
-        this.production = production;
-        this.communityGroups = communityGroups;
-        this.childrenMinistry = childrenMinistry;
-        this.studentMinistry = studentMinistry;
+        this.team = team;
     }
 
 }
