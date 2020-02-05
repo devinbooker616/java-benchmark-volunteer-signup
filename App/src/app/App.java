@@ -40,7 +40,7 @@ public class App {
 
     public static ArrayList<String> getTeam() {
         String[] possibleTeams = { "Worship", "Welcome", "Production", "Community Groups", "Children Ministry",
-                "Student Ministry", "Q" };
+                "Student Ministry", "Q", "More Info" };
         ArrayList<String> choices = new ArrayList<String>();
         while (true) {
             System.out.println("Which team would you like to be in");
