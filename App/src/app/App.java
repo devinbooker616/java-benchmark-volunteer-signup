@@ -22,7 +22,7 @@ public class App {
 
     public static ArrayList<VolunteerSheet> loadVolunteers() {
         try {
-            FileInputStream fileStream = new FileInputStream("orders.ser");
+            FileInputStream fileStream = new FileInputStream("volunteers.ser");
             ObjectInputStream os = new ObjectInputStream(fileStream);
             ArrayList<VolunteerSheet> volunteers = (ArrayList<VolunteerSheet>) os.readObject();
             os.close();
