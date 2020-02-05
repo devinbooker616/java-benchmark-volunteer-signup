@@ -8,12 +8,6 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         ArrayList<VolunteerSheet> volunteers = loadVolunteers();
-        System.out.println("Hello");
-        System.out.println(volunteers.size() + " people are interested in volunteering");
-        for (VolunteerSheet volunteer : volunteers) {
-            System.out.println(volunteer.firstName + " " + volunteer.lastName + " - " + volunteer.phone + " - " + " "
-                    + volunteer.email + " is interested in: " + volunteer.team);
-        }
         System.out.println(
                 "One does make a difference, your involvement matters, so fill out the information and select your areas of interest");
 
