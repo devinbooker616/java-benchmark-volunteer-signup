@@ -16,9 +16,11 @@ public class App {
         }
         System.out.println(
                 "One does make a difference, your involvement matters, so fill out the information and select your areas of interest");
+
         VolunteerSheet filledForm = getVolunteer();
         System.out.println("Thank your for your participation");
         volunteers.add(filledForm);
+
         saveVolunteers(volunteers);
     }
 
@@ -31,14 +33,15 @@ public class App {
         String phone = sc.nextLine();
         System.out.print("Give us your email: ");
         String email = sc.nextLine();
-        String team = getTeam();
+        ArrayList<String> team = getTeam();
         return new VolunteerSheet(firstName, lastName, phone, email, team);
 
     }
 
-    public static String getTeam() {
+    public static ArrayList<String> getTeam() {
         String[] possibleTeams = { "Worship", "Welcome", "Production", "Community Groups", "Children Ministry",
-                "Student Ministry" };
+                "Student Ministry", "Q" };
+        ArrayList<String> choices = new ArrayList<String>();
         while (true) {
             System.out.println("Which team would you like to be in");
             for (String team : possibleTeams) {
@@ -46,8 +49,12 @@ public class App {
             }
             String choice = sc.nextLine();
             boolean result = Arrays.stream(possibleTeams).anyMatch(choice::equals);
+            if (choice.equals("Q") && result) {
+                return choices;
+            }
             if (result) {
-                return choice;
+                System.out.println("If you want to stop adding teams press Q");
+                choices.add(choice);
             } else {
                 System.out.println("Sorry that team isn't available");
             }

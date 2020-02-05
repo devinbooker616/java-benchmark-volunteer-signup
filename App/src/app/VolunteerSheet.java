@@ -1,5 +1,6 @@
 package app;
 
+import java.util.*;
 import java.io.Serializable;
 
 public class VolunteerSheet implements Serializable {
@@ -8,9 +9,9 @@ public class VolunteerSheet implements Serializable {
     String lastName;
     String phone;
     String email;
-    String team;
+    public ArrayList<String> team;
 
-    public VolunteerSheet(String firstName, String lastName, String phone, String email, String team) {
+    public VolunteerSheet(String firstName, String lastName, String phone, String email, ArrayList<String> team) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
