@@ -8,23 +8,29 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         ArrayList<VolunteerSheet> volunteers = loadVolunteers();
+        for (VolunteerSheet volunteer : volunteers) {
+            System.out.println("Hello");
+            System.out.println(volunteers.size() + " people are interested in volunteering");
+            System.out.println(volunteer.firstName + " " + volunteer.lastName + " - " + volunteer.phone + " - " + " "
+                    + volunteer.email + " is interested in: " + volunteer.team);
+        }
         System.out.println(
                 "One does make a difference, your involvement matters, so fill out the information and select your areas of interest");
         VolunteerSheet filledForm = getVolunteer();
         volunteers.add(filledForm);
-        save(volunteers);
+        saveVolunteers(volunteers);
     }
 
     public static VolunteerSheet getVolunteer() {
         System.out.print("Give us your first name: ");
-        String firsName = sc.nextLine();
+        String firstName = sc.nextLine();
         System.out.print("Give us your last name: ");
         String lastName = sc.nextLine();
         System.out.print("Give us your phone number: ");
         String phone = sc.nextLine();
         System.out.print("Give us your email: ");
         String email = sc.nextLine();
-        String team = getTeam;
+        String team = getTeam();
         return new VolunteerSheet(firstName, lastName, phone, email, team);
 
     }
@@ -49,7 +55,7 @@ public class App {
 
     private static void saveVolunteers(ArrayList<VolunteerSheet> volunteers) {
         try {
-            FileOutputStream fileStream = new FileOutputStream("orders.ser");
+            FileOutputStream fileStream = new FileOutputStream("volunteers.ser");
             ObjectOutputStream os = new ObjectOutputStream(fileStream);
             os.writeObject(volunteers);
             os.close();
