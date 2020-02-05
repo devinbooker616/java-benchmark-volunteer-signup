@@ -4,9 +4,47 @@ import java.util.*;
 import java.io.*;
 
 public class App {
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) throws Exception {
         ArrayList<VolunteerSheet> volunteers = loadVolunteers();
-        System.out.println("Hello Java");
+        System.out.println(
+                "One does make a difference, your involvement matters, so fill out the information and select your areas of interest");
+        VolunteerSheet filledForm = getVolunteer();
+        volunteers.add(filledForm);
+        save(volunteers);
+    }
+
+    public static VolunteerSheet getVolunteer() {
+        System.out.print("Give us your first name: ");
+        String firsName = sc.nextLine();
+        System.out.print("Give us your last name: ");
+        String lastName = sc.nextLine();
+        System.out.print("Give us your phone number: ");
+        String phone = sc.nextLine();
+        System.out.print("Give us your email: ");
+        String email = sc.nextLine();
+        String team = getTeam;
+        return new VolunteerSheet(firstName, lastName, phone, email, team);
+
+    }
+
+    public static String getTeam() {
+        String[] possibleTeams = { "Worship", "Welcome", "Production", "Community Groups", "Children Ministry",
+                "Student Ministry" };
+        while (true) {
+            System.out.println("Which team would you like to be in");
+            for (String team : possibleTeams) {
+                System.out.println(team);
+            }
+            String choice = sc.nextLine();
+            boolean result = Arrays.stream(possibleTeams).anyMatch(choice::equals);
+            if (result) {
+                return choice;
+            } else {
+                System.out.println("Sorry that team isn't available");
+            }
+        }
     }
 
     private static void saveVolunteers(ArrayList<VolunteerSheet> volunteers) {
